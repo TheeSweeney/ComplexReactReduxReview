@@ -8,11 +8,20 @@ import config from './config.js';
 
 const API_KEY = config.key;
 
-YTSearch({key: API_KEY, term: 'complex magazine'}, function(data){
-	console.log(data)
-})
-
 class App extends Component {
+	constructor(props){
+		super(props)
+
+		this.state = {
+			videos : []
+		}
+
+
+		YTSearch({key: API_KEY, term: 'complex media'}, (videos) => {
+			this.setState({ videos })
+		})
+	}
+
 	render(){
 		return (
 			<div>
