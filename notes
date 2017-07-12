@@ -1,0 +1,13 @@
+state 
+	- plain JS object used to record and react to user events
+	- every class based component has its own state object
+	- when a components stat is changed, the component is immediately re-rendered (render function is run again)
+		- all children of this component are also rerendered
+	- before using state, we must initialize it
+		- this is done by setting this.state equal to an object in the components constructor function
+		- the object is passed will contain properties that we want to record on the state
+
+constructor function
+	- all JS classes have a special func called "constructor"
+	- it is the first and only function called automatically whenever a new instance of the class is created
+	-reserved for doing set-up of class eg initializing variables or state
