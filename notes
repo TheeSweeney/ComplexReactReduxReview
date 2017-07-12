@@ -10,4 +10,15 @@ state
 constructor function
 	- all JS classes have a special func called "constructor"
 	- it is the first and only function called automatically whenever a new instance of the class is created
-	-reserved for doing set-up of class eg initializing variables or state
+	- reserved for doing set-up of class eg initializing variables or state
+	- the constructor function is the only place in which we will directly manipulate state by setting values "by hand"
+
+this.setState
+	- when updateing the state (for example having it change as the result of an input) we do not manipulate state directly ie don't do this
+		onChange = { event => state.term = event.target.value}
+
+		do this:
+
+		onChange={event => this.setState({ term: event.target.value})
+
+	-as an aside, you can directly reference state eg console.log(this.state.term)
