@@ -22,3 +22,18 @@ this.setState
 		onChange={event => this.setState({ term: event.target.value})
 
 	-as an aside, you can directly reference state eg console.log(this.state.term)
+
+controlled field/input/form element
+	- form element who's value is set by state instead of the other way around
+	- value only changes when the state changes
+		- using the example of an input, it might look something like this: 
+			<div>
+				<input
+					value={this.state.term}
+					onChange={event => this.setState({ term: event.target.value})} />
+			</div>
+		- when a user types into the above input element, the onchange event is fired, which then runs set state with the value entered into the input. At this point, if the computer were to freeze there would be no visible change to the input because it's value is based on the previous state. Once setState is finished running, because the state has changed, the entire component is rerendered. Now, the value is equal to the new state and the input will be visibly different. Lecture 19 - 5:00ish
+
+downwards data flow 
+	- only the most parent component in an application should be responsible for fetching data (from API/Flux/Redux)
+	

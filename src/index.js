@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search';
 
 import SearchBar from './components/search_bar'
 
@@ -7,14 +8,18 @@ import config from './config.js';
 
 const API_KEY = config.key;
 
-//Create a new component - should produce some HTML
-const App = () => {
-	return (
-		<div>
-			<SearchBar />
-		</div>
-	);
+YTSearch({key: API_KEY, term: 'complex magazine'}, function(data){
+	console.log(data)
+})
+
+class App extends Component {
+	render(){
+		return (
+			<div>
+				<SearchBar />
+			</div>
+		);
+	}
 }
 
-//Take component's generated HTML and put it on the page/in DOM
 ReactDOM.render(<App />, document.querySelector('.container'));
